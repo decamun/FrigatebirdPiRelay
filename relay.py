@@ -2,6 +2,10 @@ import time
 import os
 import dronekit_sitl
 from dronekit import connect, VehicleMode
+import dronekit
+import socket
+import exceptions
+
 
 
 ###Initialization process
@@ -34,16 +38,35 @@ def log_line(text):
     if am_logging:
         log_file.write(str(text))
 
-##Start simulator
-#
-log_line("Start simulator (SITL)")
-sitl = dronekit_sitl.start_default()
-connection_string = sitl.connection_string()
+# ##Start simulator
+# #
+# log_line("Start simulator (SITL)")
+# sitl = dronekit_sitl.start_default()
+# connection_string = sitl.connection_string()
 
 
 # Connect to the Vehicle.
 log_line("Connecting to vehicle on: %s" % (connection_string,))
-vehicle = connect(connection_string, wait_ready=True)
+vehicle = None #connect(connection_string, wait_ready=True)
+
+try:
+    vehicle = connect('/dev/ttylAMA0', heartbeat_timeout=15)
+
+# Bad TCP connection
+except socket.error:
+    log_line('No server exists!')
+
+# Bad TTY connection
+except exceptions.OSError as e:
+    log_line('No serial exists!')
+
+# API Error
+except dronekit.APIException:
+    log_line('Timeout!')
+
+# Other error
+except:
+    log_line('Unknuwn error while trying to connect!')
 
 # Get some vehicle attributes (state)
 log_line("Vehicle attribute values:")
