@@ -1,6 +1,6 @@
 import time
 import os
-import dronekit_sitl
+# import dronekit_sitl
 from dronekit import connect, VehicleMode
 import dronekit
 import socket
@@ -46,6 +46,8 @@ def log_line(text):
 
 
 # Connect to the Vehicle.
+connection_string = '/dev/ttylAMA0'
+
 log_line("Connecting to vehicle on: %s" % (connection_string,))
 vehicle = None #connect(connection_string, wait_ready=True)
 
