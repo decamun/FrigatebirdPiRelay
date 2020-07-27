@@ -1,7 +1,8 @@
 import time
 import os
-from dronekit import connect, VehicleMode
+import sys
 import dronekit
+from dronekit import connect, VehicleMode
 import socket
 import exceptions
 
@@ -51,7 +52,8 @@ log_line("Connecting to vehicle on: %s" % (connection_string,))
 vehicle = None #connect(connection_string, wait_ready=True)
 
 try:
-    vehicle = connect('/dev/ttylAMA0', heartbeat_timeout=15)
+    vehicle = dronekit.connect(connection_string, wait_ready=True, baud=57600)
+    log_line("Success!")
 
 # Bad TCP connection
 except socket.error:
@@ -67,6 +69,8 @@ except dronekit.APIException:
 
 # Other error
 except:
+    e = sys.exc_info()[0]
+    print(str(e))
     log_line('Unknuwn error while trying to connect!')
 
 # Get some vehicle attributes (state)
