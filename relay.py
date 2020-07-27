@@ -1,6 +1,5 @@
 import time
 import os
-# import dronekit_sitl
 from dronekit import connect, VehicleMode
 import dronekit
 import socket
@@ -25,7 +24,7 @@ print('Starting logfile')
 am_logging = True
 log_file = None
 try:
-    log_file = open("~/tmp/relay_log_" + time.time() + ".txt", "w")
+    log_file = open("~/tmp/relay_log_" + str(time.time()) + ".txt", "w")
     print("Opened log file")
 except:
     #log file not working
@@ -46,7 +45,7 @@ def log_line(text):
 
 
 # Connect to the Vehicle.
-connection_string = '/dev/ttylAMA0'
+connection_string = '/dev/ttyAMA0'
 
 log_line("Connecting to vehicle on: %s" % (connection_string,))
 vehicle = None #connect(connection_string, wait_ready=True)
