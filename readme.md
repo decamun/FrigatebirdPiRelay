@@ -26,15 +26,11 @@ If all steps are followed correctly and installation succeeds, your Raspberry Pi
 # Usage:
 
 To start/stop/restart Arduplane run:
-    
+
     sudo systemctl [start/stop/restart] arduplane
 
-To stop FrigateBirdPiRelay run:
+To start/stop FrigateBirdPiRelay run:
 
-    sudo /etc/init.d/relay stop
-
-To start FrigateBirdPiRelay run:
-
-    sudo /etc/init.d/relay start
+    sudo /etc/init.d/relay [start/stop]
 
 FrigateBirdPiRelay logfiles can be found at **/tmp/relay.py.*start_timestamp*.log**
