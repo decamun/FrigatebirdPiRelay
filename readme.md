@@ -7,14 +7,14 @@ FrigateBirdPiRelay is a program intended to allow a Raspberry Pi computer to ser
 # Setup Instructions:
 1. Follow [instructions](https://docs.emlid.com/navio2/common/ardupilot/configuring-raspberry-pi/) to flash the latest Emlid Navio2 img and connect the board to WiFi
 2. Assemble the 4G/LTE HAT and the Navio2 HAT to the Raspberry Pi
-SSH into the Raspberry Pi
-3. Run the following commands to install FrigatebirdPiRelay:
+3. SSH into the Raspberry Pi
+4. Run the following commands to install FrigatebirdPiRelay:
 
        wget https://raw.githubusercontent.com/decamun/FrigatebirdPiRelay/master/install/installPiRelay.sh
        sudo chmod +x installPiRelay.sh
        sudo ./installPiRelay.sh
 
-4. Follow instructions and provide input as necessary.
+5. Follow instructions and provide input as necessary.
   * When prompted to choose your Sixfab Sheild, respond with *'2'*
   * If asked whether your Kernel is up to date, respond with *'n'*
   * When prompted to enter you carrier APN, enter *'wireless.twilio.com'*
@@ -25,6 +25,8 @@ If all steps are followed correctly and installation succeeds, your Raspberry Pi
 
 # Usage:
 
+To start/stop/restart Arduplane run:
+    sudo systemctl *start/stop/restart* arduplane
 
 To stop FrigateBirdPiRelay run:
 
