@@ -4,12 +4,11 @@
 
 #Clone FrigatebirdPiRelay from Github
 echo "Cloning FrigatebirdPiRelay from Github..."
-mkdir /home/pi/testInstall
-git clone https://github.com/decamun/FrigatebirdPiRelay /home/pi/testInstall
+git clone https://github.com/decamun/FrigatebirdPiRelay /home/pi/FrigatebirdPiRelay/
 
 #Install FrigatebirdPiRelay autorun
 echo "Installing FrigatebirdPiRelay autorun..."
-cp /home/pi/testInstall/FrigatebirdPiRelay/install/relay /tmp/init.d
+cp /home/pi/FrigatebirdPiRelay/install/relay /tmp/init.d
 chmod +x /tmp/init.d/relay
 /usr/sbin/update-rc.d relay defaults
 
