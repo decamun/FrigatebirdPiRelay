@@ -7,6 +7,10 @@ echo "Updating and Upgrading...\n\n"
 apt-get update
 apt-get upgrade
 
+#enable Arduplane to run on boot
+echo "Enabling aruplane to start on boot"
+systemctl enable arduplane
+
 #Clone FrigatebirdPiRelay from Github
 echo "Cloning FrigatebirdPiRelay from Github...\n\n"
 git clone https://github.com/decamun/FrigatebirdPiRelay /home/pi/FrigatebirdPiRelay/
@@ -27,11 +31,4 @@ echo "Installing LTE hat drivers."
 echo "User input will be required...\n\n"
 wget https://raw.githubusercontent.com/sixfab/Sixfab_PPP_Installer/master/ppp_installer/install.sh
 chmod +x install.sh
-./install.sh
-rm -rf install.sh
-
-#Reboot after installation
-echo "Installation complete!"
-echo "Press enter to reboot...\n\n"
-read;
-reboot
+./install.sh #system will reboot after install.sh runs
