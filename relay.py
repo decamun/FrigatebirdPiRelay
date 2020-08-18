@@ -25,7 +25,7 @@ print('Starting logfile')
 am_logging = True
 log_file = None
 try:
-    log_file = open("/tmp/relay_log.txt", "w")
+    log_file = open("/tmp/relay.py." + str(time.time()) + ".log", "w")
     print("Opened log file")
 except:
     #log file not working
@@ -36,7 +36,7 @@ except:
 def log_line(text):
     print(str(text))
     if am_logging:
-        log_file.write(str(text))
+        log_file.write(str(text) + "\n")
 
 # ##Start simulator
 # #
@@ -46,7 +46,7 @@ def log_line(text):
 
 
 # Connect to the Vehicle.
-connection_string = '/dev/ttyAMA0'
+connection_string = 'udp:127.0.0.1:14550'
 
 log_line("Connecting to vehicle on: %s" % (connection_string,))
 vehicle = None #connect(connection_string, wait_ready=True)
@@ -88,7 +88,7 @@ log_line('Initialized!')
 vehicle.close()
 
 # Shut down simulator
-sitl.stop()
+#sitl.stop()
 print("Completed")
 
 # ###Main loop
