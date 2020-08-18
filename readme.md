@@ -26,6 +26,7 @@ If all steps are followed correctly and installation succeeds, your Raspberry Pi
 # Usage:
 
 To start/stop/restart Arduplane run:
+    
     sudo systemctl *start/stop/restart* arduplane
 
 To stop FrigateBirdPiRelay run:
