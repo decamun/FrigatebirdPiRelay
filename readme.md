@@ -9,9 +9,9 @@ FrigateBirdPiRelay is a program intended to allow a Raspberry Pi computer to ser
 2. Assemble the 4G/LTE HAT and the Navio2 HAT to the Raspberry Pi
 SSH into the Raspberry Pi
 3. Run the following commands to install FrigatebirdPiRelay:
-  wget https://raw.githubusercontent.com/decamun/FrigatebirdPiRelay/master/install/installPiRelay.sh
-  sudo chmod +x installPiRelay.sh
-  sudo ./installPiRelay.sh
+    wget https://raw.githubusercontent.com/decamun/FrigatebirdPiRelay/master/install/installPiRelay.sh
+    sudo chmod +x installPiRelay.sh
+    sudo ./installPiRelay.sh
 
 4. Follow instructions and provide input as necessary.
   * When prompted to choose your Sixfab Sheild, respond with '2'
@@ -27,8 +27,8 @@ If all steps are followed correctly and installation succeeds, your Raspberry Pi
 
 To stop FrigateBirdPiRelay run:
 
-  sudo /etc/init.d/relay stop
+    sudo /etc/init.d/relay stop
 
 To start FrigateBirdPiRelay run:
 
-  sudo /etc/init.d/relay start
+    sudo /etc/init.d/relay start
