@@ -38,12 +38,6 @@ def log_line(text):
     if am_logging:
         log_file.write(str(text) + "\n")
 
-# ##Start simulator
-# #
-# log_line("Start simulator (SITL)")
-# sitl = dronekit_sitl.start_default()
-# connection_string = sitl.connection_string()
-
 
 # Connect to the Vehicle.
 connection_string = 'udp:127.0.0.1:14550'
