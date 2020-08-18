@@ -11,7 +11,7 @@ git clone https://github.com/decamun/FrigatebirdPiRelay /home/pi/testInstall
 echo "Installing FrigatebirdPiRelay autorun..."
 cp /home/pi/testInstall/FrigatebirdPiRelay/install/relay /tmp/init.d
 chmod +x /tmp/init.d/relay
-update-rc.d /tmp/init.d/relay defaults
+/usr/sbin/update-rc.d relay defaults
 
 #Install dependencies
 echo "Installing dependencies."
