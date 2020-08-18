@@ -1,0 +1,74 @@
+#! /bin/sh
+# /etc/init.d/relay
+
+### BEGIN INIT INFO
+# Provides:          relay
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Simple script to start a program at boot
+# Description:       A simple script from www.stuffaboutcode.com which will start / stop a program a boot / shutdown.
+### END INIT INFO
+
+# start the relay process
+start() 
+{
+  if test ! -f /tmp/relay.pid 
+    then   # Check if the file already exists
+      
+      echo $! > /tmp/relay.pid
+	    
+      echo "Waiting 10s to start services."
+      sleep 10s
+
+      echo "Starting quectel CM"
+      /home/pi/files/quectel-CM/quectel-CM -s wireless.twilio.com &
+      
+      
+      echo "Starting relay"                 #+and if so do not run another process.
+      python /home/pi/FrigatebirdPiRelay/relay.py &
+
+    else
+      echo -n "ERROR: The relay process is already running with pid "
+      cat /tmp/relay.pid
+      echo
+  fi
+}
+
+stop() 
+{
+
+  echo "Stopping quectel CM"
+  killall quectel-CM
+ 
+  if test -f /tmp/relay.pid
+    then   # If the file do not exists, then the
+      echo "Stopping relay.py"
+      kill `cat /tmp/relay.py.pid`
+      rm /tmp/relay.py.pid
+      
+      echo "Stopping relay service"
+      kill `cat /tmp/relay.pid`      #+the process is not running. Useless
+      rm /tmp/relay.pid              #+trying to kill it.
+  else
+      echo "relay is not running"
+  fi
+}
+
+
+# Carry out specific functions when asked to by the system
+case "$1" in
+  start)
+    start
+    ;;
+  stop)
+    stop
+    ;;
+  *)
+    echo "Usage: /etc/init.d/relay {start|stop}"
+    exit 1
+    ;;
+esac
+
+exit 0

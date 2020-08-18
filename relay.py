@@ -63,9 +63,8 @@ except dronekit.APIException:
 
 # Other error
 except:
-    e = sys.exc_info()[0]
-    print(str(e))
-    log_line('Unknuwn error while trying to connect!')
+    print(str(sys.exc_info()))
+    log_line('Unknown error while trying to connect!')
 
 # Get some vehicle attributes (state)
 log_line("Vehicle attribute values:")
