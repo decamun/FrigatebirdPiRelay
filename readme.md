@@ -1,11 +1,11 @@
 # Readme
 
 # Introduction:
-FrigateBirdPiRelay is a program intended to allow a Raspberry Pi computer to serve as a communication link between an Azure server and a Navio2 unit on a drone. This program is designed to run on a Raspberry Pi connected to a Sixfab 4g/LTE HAT with a Twilio Programmable Wireless SIM installed and an Emlid Navio2 HAT. Modifications will be necessary for other configurations.
+FrigateBirdPiRelay is a program intended to allow a Raspberry Pi computer to serve as a communication link between an Azure server and a Navio2 unit on a drone. This program is designed to run on a Raspberry Pi connected to a [Sixfab 4g/LTE](https://sixfab.com/product/raspberry-pi-base-hat-3g-4g-lte-minipcie-cards/) HAT with a [Twilio Programmable Wireless](https://www.twilio.com/wireless) SIM installed and an [Emlid Navio2 HAT](https://navio2.emlid.com/). Modifications will be necessary for other configurations.
 
 
 # Setup Instructions:
-1. Download Emlid's latest [Navio2 Raspberry Pi img file] and follow [instructions] to flash the img and connect the board to WiFi
+1. Follow [instructions](https://docs.emlid.com/navio2/common/ardupilot/configuring-raspberry-pi/) to flash the latest Emlid Navio2 img and connect the board to WiFi
 2. Assemble the 4G/LTE HAT and the Navio2 HAT to the Raspberry Pi
 SSH into the Raspberry Pi
 3. Run the following commands to install FrigatebirdPiRelay:
