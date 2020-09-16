@@ -81,57 +81,5 @@ log_line('Initialized!')
 # Close vehicle object before exiting script
 vehicle.close()
 
-# Shut down simulator
-#sitl.stop()
+# Done
 print("Completed")
-
-# ###Main loop
-# ##
-# while 1:
-#     log_line(".")
-#     time.sleep(1)
-
-
-
-
-
-
-# Sendmail testing...
-
-# import smtplib
-# from email.mime.multipart import MIMEMultipart
-# from email.mime.text import MIMEText
-
-#    print("Running relay script. This message is displayed once every 30 seconds.")
-#    time.sleep(30)
-
-
-#    try:
-#        #send an email from a gmail account
-#        mail_content = "Hello World"
-#        sender_address = "..."
-#        sender_pass = "..."
-#        receiver_address = "..."
-#
-#        #smtp session
-#        session = smtplib.SMTP('smtp.gmail.com', 587) #use gmail with port
-#        session.starttls() #start security
-#        session.login(sender_address, sender_pass)
-#
-#        #setup MIME
-#        message = MIMEMultipart()
-#        message['From'] = sender_address
-#        message['To'] = receiver_address
-#        message['Subject'] = "Hello World"
-#
-#        #body and attachments
-#        message.attach(MIMEText(mail_content, 'plain'))
-#
-#        #prepare
-#        text = message.as_string()
-#
-#        session.sendmail(sender_address, receiver_address, text)
-#        session.quit()
-#        print('Mail Sent')
-#    except:
-#        print('Something went wrong sending mail')

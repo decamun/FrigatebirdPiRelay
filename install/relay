@@ -19,8 +19,8 @@ start()
 
       echo $! > /tmp/relay.pid
 
-      echo "Waiting 10s to start services."
-      sleep 10s
+      echo "Waiting 20s to start services."
+      sleep 20s
 
       #echo "Starting quectel CM"
       #/home/pi/files/quectel-CM/quectel-CM -s wireless.twilio.com &
@@ -36,7 +36,7 @@ start()
   fi
 }
 
-stop() 
+stop()
 {
 
   #echo "Stopping quectel CM"

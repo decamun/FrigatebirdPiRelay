@@ -15,11 +15,13 @@ systemctl enable arduplane
 echo "Cloning FrigatebirdPiRelay from Github..."
 git clone https://github.com/decamun/FrigatebirdPiRelay /home/pi/FrigatebirdPiRelay/
 
-#Install FrigatebirdPiRelay autorun
-echo "Installing FrigatebirdPiRelay autorun..."
-cp /home/pi/FrigatebirdPiRelay/install/relay /etc/init.d
-chmod +x /etc/init.d/relay
-/usr/sbin/update-rc.d relay defaults
+### Autorun not yet working... ###
+# #Install FrigatebirdPiRelay autorun
+# echo "Installing FrigatebirdPiRelay autorun..."
+# cp /home/pi/FrigatebirdPiRelay/install/relay /etc/init.d
+# chmod +x /etc/init.d/relay
+# /usr/sbin/update-rc.d relay defaults
+##################################
 
 #Install dependencies
 echo "Installing dependencies."
